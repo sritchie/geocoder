@@ -38,9 +38,9 @@
   the beginning."
   [output-tap csv-dir]
   (let [source (hfs-textline csv-dir)]
-    (?<- output-tap [!!lat !!lng ?line]
+    (?<- output-tap [!lat !lng ?line]
          (source ?line)
-         (geocode ?line :> !!lat !!lng))))
+         (geocode ?line :> !lat !lng))))
 
 (defn -main [csv-dir output-dir]
   (process-addresses (hfs-textline output-dir) csv-dir))
